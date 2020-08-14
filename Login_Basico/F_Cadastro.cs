@@ -7,27 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using Login_Basico.Classes;
 
 namespace Login_Basico
 {
-    public partial class Form1 : Form
+    public partial class F_Cadastro : Form
     {
-        public Form1()
+        Cadastro cadastro = new Cadastro();
+
+        public F_Cadastro()
         {
             InitializeComponent();
         }
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void btn_limpar_Click(object sender, EventArgs e)
         {
-            Login login = new Login(tb_usuario, tb_senha);
+            tb_nome.Text = null;
+            tb_senha.Text = null;
+            tb_senha2.Text = null;
         }
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
-            F_Cadastro cadastro = new F_Cadastro();
-            cadastro.ShowDialog();
+            cadastro.Cadastrar(tb_nome, tb_senha, tb_senha2);
         }
     }
 }
